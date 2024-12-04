@@ -1,0 +1,42 @@
+header {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+  }
+
+  .container1 h1{
+    text-align:left;
+  }
+  
+  .card {
+    border-radius: 10px;
+  }
+  
+  .card-body {
+    border-radius: 10px;
+  }
+  
+  table th {
+    background-color: #f1f1f1;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  table td {
+    vertical-align: middle;
+  }
+  
+  .badge {
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 10px;
+  }
+  
+  .btn-danger {
+    background-color: #e3342f;
+    border: none;
+  }
+  
+  .btn-danger:hover {
+    background-color: #c82333;
+  }
+  
