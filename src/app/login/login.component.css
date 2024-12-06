@@ -1,10 +1,20 @@
 header {
     background-color: #f8f9fa;
     border-bottom: 2px solid #dee2e6;
+    overflow: hidden;
   }
 
-  .container1 h1{
-    text-align:left;
+  header img{
+    width: 250px;
+    height: auto;
+
+}
+ 
+  
+  header h1 {
+    font-size: 1.5rem;
+    color: #333;
+    text-align: center;
   }
   
   .card {
@@ -32,11 +42,21 @@ header {
   }
   
   .btn-danger {
-    background-color: #e3342f;
+    background-color: #DE0031;
     border: none;
   }
   
   .btn-danger:hover {
-    background-color: #c82333;
+    background-color: #DE0031;
   }
+  
+  .form-control,
+  .form-select {
+    width: 100%;
+    max-width: 150px;
+    margin: auto;
+    text-align: center;
+  }
+  
+  
   

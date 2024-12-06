@@ -1,0 +1,64 @@
+<header class="d-flex justify-content-between align-items-center p-3 mb-4 bg-light rounded shadow-sm">
+  <img src="\images\logo.png" alt="Logo" />
+  <h1 class="m-0 text-center flex-grow-1">Detalles</h1>
+  <button [routerLink]="'/login'" class="btn btn-primary">Salir</button>
+</header>
+
+<div class="container-fluid mt-3">
+  <div class="row">
+    <div
+      class="col-sm-4 p-2"
+      *ngFor="let computador of computadores"
+      [ngClass]="{ 'bg-danger': computador.tieneProblema }"
+    >
+      <div class="card shadow">
+        <div class="card-header text-center">
+          <h2>{{ computador.nombre }}</h2>
+        </div>
+        <div class="card-body text-center">
+          <img src="images\PC.jpg" alt="" class="img-fluid mb-3">
+
+          <button class="btn notificar-btn" (click)="abrirPopup(computador)">
+            Notificar Problema
+          </button>
+        </div>
+        <div
+          class="card-footer text-white"
+          *ngIf="computador.tieneProblema"
+          [class.bg-danger]="computador.tieneProblema"
+        >
+          <strong>Problema: </strong> {{ computador.problema }}
+          <button class="btn solucion-btn" (click)="abrirPopupSolucion(computador)">
+            Solucion realizada
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Popup para notificar problema -->
+<div class="popup-backdrop" *ngIf="mostrarPopupNotificar">
+  <div class="popup-content">
+    <h2>Notificar Problema</h2>
+    <p>Describa el problema del <strong>{{ computadorSeleccionado?.nombre }}</strong>:</p>
+    <textarea [(ngModel)]="problemaInput" class="form-control" rows="4"></textarea>
+    <div class="mt-3 text-center">
+      <button class="btn btn-secondary" (click)="cerrarPopup()">Cancelar</button>
+      <button class="btn btn-primary" (click)="guardarProblema()">Guardar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Popup para solucionar problema -->
+<div class="popup-backdrop" *ngIf="mostrarPopupSolucion">
+  <div class="popup-content">
+    <h2>Solucionar Problema</h2>
+    <p>¿Está seguro de que el problema del <strong>{{ computadorSeleccionado?.nombre }}</strong> ha sido solucionado?</p>
+    <div class="mt-3 text-center">
+      <button class="btn btn-secondary" (click)="cerrarPopup()">Cancelar</button>
+      <button class="btn btn-success" (click)="confirmarSolucion()">Aceptar</button>
+    </div>
+  </div>
+</div>
+

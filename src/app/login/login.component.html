@@ -1,45 +1,37 @@
-<div class="container mt-5">
-    <header class="d-flex justify-content-between align-items-center p-3 mb-4 bg-light rounded shadow-sm">
-      <div class="container1">
-        <img src="\images\logo.png" alt="Logo" style="height: 50px;">
-      </div>
-      <h1 class="m-0 text-center">Gestión de salas</h1>
-      <button class="btn btn-danger">Salón</button>
-    </header>
-  
-    <div class="card shadow">
-      <div class="card-body">
-        <table class="table text-center">
-          <thead>
-            <tr>
-              <th>Número de sala</th>
-              <th>Número de equipos</th>
-              <th>Estado</th>
-              <th>Acción</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Sala 101</td>
-              <td>30 Equipos</td>
-              <td><span class="badge bg-success">Disponible</span></td>
-              <td><button class="btn btn-danger btn-sm">Ver detalles</button></td>
-            </tr>
-            <tr>
-              <td>Sala 102</td>
-              <td>25 Equipos</td>
-              <td><span class="badge bg-danger">Ocupada</span></td>
-              <td><button class="btn btn-danger btn-sm">Ver detalles</button></td>
-            </tr>
-            <tr>
-              <td>Sala 103</td>
-              <td>20 Equipos</td>
-              <td><span class="badge bg-warning text-dark">Pendiente</span></td>
-              <td><button class="btn btn-danger btn-sm">Ver detalles</button></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+<header class="d-flex justify-content-between align-items-center p-3 mb-4 bg-light rounded shadow-sm">
+  <img src="images\logo.png" alt="">
+  <h1 class="m-0 text-center flex-grow-1">Gestión de salas</h1>
+</header>
+
+<div class="card shadow">
+  <div class="card-body">
+    <table class="table text-center">
+      <thead>
+        <tr>
+          <th>Número de sala</th>
+          <th>Número de equipos</th>
+          <th>Estado</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sala of salas">
+          <td>{{ sala.numero }}</td>
+          <td>
+            <span>{{ sala.equipos}} Equipos</span>
+          </td>
+          <td>
+            <span>{{sala.estado}}</span>
+          </td>
+          <td>
+            <button [routerLink]="'/detalles'" class="btn btn-danger btn-sm">Ver detalles</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+</div>
+
+  
+  
   
