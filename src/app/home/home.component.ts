@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { initializeApp } from 'firebase/app';
+import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { environment } from '../../environments/environment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,10 +11,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  
-loginForm: FormGroup;
+  loginForm: FormGroup;
+  private auth = getAuth(initializeApp(environment.firebaseConfig));
 
-constructor(private fb: FormBuilder) {
+constructor(private fb: FormBuilder, private router: Router) {
 
 this.loginForm = this.fb.group({
   email: ['',[Validators.required, Validators.email]],
@@ -29,5 +33,18 @@ onSubmit(): void {
     alert('Ingrese la información correcta');
   }
 
+}
+loginWithGoogle(): void {
+  const provider = new GoogleAuthProvider();
+  signInWithPopup(this.auth, provider)
+    .then((result) => {
+      console.log('Inicio de sesión con Google exitoso:', result);
+      alert('Inicio de sesión con Google exitoso');
+      this.router.navigate(['/login']);
+    })
+    .catch((error) => {
+      console.error('Error al iniciar sesión con Google:', error);
+      alert('Error al iniciar sesión con Google.');
+    });
 }
 }

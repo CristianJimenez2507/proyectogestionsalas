@@ -1,17 +1,15 @@
+/* Estilizado del formulario */
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     position: relative;
     height: 100vh;
-    background: none; 
+    background: none;
 }
 
-
-
-
-header{
-    display:flex;
+header {
+    display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 30px 30px;
@@ -19,17 +17,16 @@ header{
     height: 80px;
 }
 
-header img{
+header img {
     width: 250px;
     height: auto;
-
 }
 
-.container{
+.container {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-    justify-content:center;
+    justify-content: center;
     padding: 50px;
 }
 
@@ -42,23 +39,28 @@ header img{
     margin-top: 20px;
 }
 
-
-
-.form-container h1{
-
+.form-container h1 {
     margin-top: 4px;
     color: #DE0031;
     font-weight: 600;
     text-align: center;
     transform: translateY(-30px);
-
 }
 
-.btn-primary{
+.btn-primary {
     background-color: #DE0031;
     border: none;
-
 }
-.btn-primary:hover{
+
+.btn-primary:hover {
     background-color: #DE0031;
+}
+
+.btn-outline-danger {
+    margin-top: 10px;
+}
+
+.btn-outline-danger i {
+    font-size: 1.2rem;
+    vertical-align: middle;
 }
